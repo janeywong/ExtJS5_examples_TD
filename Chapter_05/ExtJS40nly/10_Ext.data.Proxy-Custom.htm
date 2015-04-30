@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css">
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script> 
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/ext-theme-neptune.js"></script>
+    <script>
+        Ext.define("BookProxy", {
+            extend: "Ext.data.proxy.Rest",
+            alias: "proxy.bookproxy",
+            buildUrl: function (req) {
+                var originalUrl = this.callParent(arguments);
+                if (req.action == "read") {
+                    var urlParts = originalUrl.split("?");
+                    targetUrl = urlParts[0] + "/list?" + urlParts[1];
+                }
+                if (req.action == "create") {
+                    var urlParts = originalUrl.split("/");
+                    targetUrl = urlParts[0] + "/add/" + urlParts[1];
+                }
+                else if (req.action == "update") {
+                    var urlParts = originalUrl.split("/");
+                    targetUrl = urlParts[0] + "/update/" + urlParts[1];
+                }
+                else if (req.action == "destroy") {
+                    var urlParts = originalUrl.split("/");
+                    targetUrl = urlParts[0] + "/remove/" + urlParts[1];
+                }
+                return targetUrl;
+            }
+        });
+        Ext.define("Book", {
+        extend : "Ext.data.Model",
+        fields : ["id","title","author"],
+        proxy:{
+            type : "bookproxy" ,
+            url : "library" //YOU NEED TO HAVE SOMETHING RUNNING AT /library
+        }
+    });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

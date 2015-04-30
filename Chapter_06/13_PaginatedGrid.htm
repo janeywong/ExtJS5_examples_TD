@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css">
+        <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script>      <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/ext-theme-neptune.js"></script>
+    <script>
+      var store = Ext.create("Ext.data.Store", {
+            fields: ["sno", "value"],
+            pageSize : 50,
+            autoLoad : true,
+            proxy : {
+                type : "ajax",
+                url : "server.ashx",
+                reader : {
+                    type : "json",
+                    root : "output",
+                    totalProperty : "total"
+                }
+            }
+        });
+
+        Ext.onReady(function () {
+                Ext.create("Ext.grid.Panel", {
+                    store: store,
+                    title : "Paginated grid",
+                    height : 400,width:400,
+                    dockedItems: [{
+                        xtype: 'pagingtoolbar',
+                        store: store,   
+                        dock: 'bottom',
+                        displayInfo: true
+                    }],
+                    columns: [
+                                {
+                                    text: 'Serial No',
+                                    dataIndex: 'sno'
+                                },
+                                {
+                                    text: 'Value',
+                                    dataIndex: 'value',
+                                }                           ],
+                    renderTo: Ext.getBody()
+                });
+            }
+        );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

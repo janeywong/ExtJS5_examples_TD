@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+   <link rel="stylesheet" type="text/css" href="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css">
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script> 
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/ext-theme-neptune.js"></script>
+    <script>
+    Ext.define("Country", {
+        extend: "Ext.data.Model",
+        fields : ["name","capital","population"]
+    });
+
+    Ext.create("Country", {
+        name: "France",
+        capital: "Paris",
+        population: 65436552
+    });
+    var fr = Ext.create("Country", {
+        name: "France",
+        population: 65436552
+    });
+    
+    console.log(fr.get("name"));
+    fr.set("capital", "Paris");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

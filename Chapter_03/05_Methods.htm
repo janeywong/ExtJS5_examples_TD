@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script>
+<script>
+	Ext.define("Book",{
+		config : {
+			title : "", price: 0
+		},	
+		constructor : function(cfg){
+			this.initConfig(cfg);
+		},
+		read: function(){
+			console.log("Reading " + this.getTitle());
+		}
+	});	
+	var xml = Ext.create("Book",{
+		title : "XML", price:12.00
+	});
+	xml.read(); //Prints Reading XML
+</script>
+</head>
+<body>
+</body>
+</html>

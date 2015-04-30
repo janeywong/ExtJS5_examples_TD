@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css">
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script> 
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/ext-theme-neptune.js"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.create('Ext.tab.Panel', {
+                renderTo: Ext.getBody(),
+                title: "Documentation",
+                plain: false,
+                height : 200,
+                tabPosition: "bottom",
+                items: [
+                            {
+                                title: 'Home',
+                                html : "Welcome to Ext JS 4"
+                            }, 
+                            {
+                                title: 'API',
+                                html : "API docs"
+                            }, 
+                            {
+                                title: 'Guides',
+                                html : "Standard guides"
+                            }
+                        ]
+            }); 
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

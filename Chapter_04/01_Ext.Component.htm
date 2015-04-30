@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css">
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script> 
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/ext-theme-neptune.js"></script>
+    <script>
+        Ext.onReady(function () {
+            var panel1 = Ext.create("Ext.panel.Panel", {
+                items: [
+                    Ext.create("Ext.Component", {
+                        html: "Raw Component",
+                        itemId: "rawcomp1"
+                    })
+                ],
+                renderTo: Ext.get("hellodiv")
+            });
+            console.log(panel1.getComponent("rawcomp1"));
+        });        
+    </script>
+</head>
+<body>
+    <div id="hellodiv"></div>
+</body>
+</html>

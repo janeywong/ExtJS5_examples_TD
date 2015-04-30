@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script>
+<script>
+	Ext.define("Book",{
+		statics : {
+			numberOfBooks: 0,
+			getNumberOfBooks: function(){
+				return this.numberOfBooks;
+			}
+		},
+		constructor : function(){
+			this.statics().numberOfBooks++;
+            // or same thing using 'self'
+            // this.self.numberOfBooks++;
+		}
+	});	
+	
+	Ext.create("Book");
+	Ext.create("Book");
+	console.log(Book.getNumberOfBooks());
+</script>
+</head>
+<body>
+</body>
+</html>

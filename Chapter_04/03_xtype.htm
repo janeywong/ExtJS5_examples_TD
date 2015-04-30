@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css">
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script> 
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/ext-theme-neptune.js"></script>
+    <script>
+        Ext.onReady(function () {
+            var nameText = {
+                xtype : "textfield",
+                fieldLabel : "Name"
+            };
+            var submitButton = {
+                xtype : "button",
+                text : "Submit"
+            };
+            Ext.create("Ext.panel.Panel",{
+                renderTo : Ext.getBody(),
+                items : [
+                    nameText,submitButton
+                ]
+            });
+        });        
+    </script>
+</head>
+<body>
+</body>
+</html>

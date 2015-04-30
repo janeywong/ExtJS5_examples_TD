@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css">
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script> 
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/ext-theme-neptune.js"></script>
+    <script>
+        Ext.onReady(function () {
+            Ext.create("Ext.panel.Panel", {
+                layout: "border", padding: 30, id: "main", height: 500, width: 400,
+                items: [
+					        	{
+					        	    xtype: "panel",
+					        	    html: "Top ",
+					        	    region: "north"
+					        	},
+					        	{
+					        	    xtype: "panel",
+					        	    html: "Main contents",
+					        	    region: "center"
+					        	},
+					        	{
+					        	    xtype: "panel",
+					        	    html: "Side bar",
+					        	    collapsible: false,
+					        	    split: true,
+					        	    region: "west"
+					        	}
+					        ],
+                renderTo: Ext.getBody()
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

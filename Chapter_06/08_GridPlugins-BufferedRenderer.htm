@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css">
+        <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script>      <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/ext-theme-neptune.js"></script>
+    <script>
+        function loadData(){
+            var data = [];
+            for(var i=1;i<=5000;i++){
+                data.push({sno:i,value:"Value is " + (1000*i)});
+            }
+            return data;
+        }
+        var store = Ext.create("Ext.data.Store", {
+            fields: ["sno", "value"],
+            data : loadData()
+        });
+
+
+        Ext.onReady(function () {
+                Ext.create("Ext.grid.Panel", {
+                    store: store,
+                    height : 300,
+                    title : "Buffered Grid",
+                    plugins : [
+                        {
+                            ptype :"bufferedrenderer",
+                            trailingBufferZone : 10,
+                            leadingBufferZone : 30,
+                            scrollToLoadBuffer : 10000
+                        }
+                    ],
+                    columns: [
+                                {
+                                    text: 'Serial No',
+                                    dataIndex: 'sno',
+                                },
+                                {
+                                    text: 'Value',
+                                    dataIndex: 'value'
+                                }      
+                            ],
+                    renderTo: Ext.getBody()
+                });
+            }
+        );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

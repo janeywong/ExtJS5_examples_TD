@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css">
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script> 
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/ext-theme-neptune.js"></script>
+    <script>
+        var bookStore = Ext.create("Ext.data.Store", {
+            fields: ["title", "author", "price"],
+            data: [
+                { title: "Zend Framework", author: "Zend", price: 49.99 },
+                { title: "Beginning F#", author: "Robert Pickering", price: 44.99 },
+                { title: "Pro Hadoop", author: "Jason Venner", price: 39.99 }
+            ],
+            autoLoad: false
+        });
+        bookStore.on("load", function (src) {
+            console.log("loaded " + src.getCount());
+        });
+        bookStore.load();
+        bookStore.on("update", function (src, record) {
+            console.log("updated " + record.get("title"));
+        });
+        bookStore.on("datachanged", function (src) {
+            console.log("datachanged " + src.getCount());
+        });
+        bookStore.add({ title: "Pro Spring Security", author: "Carlo Scarioni", price: 49.99 });
+        bookStore.getAt(0).set("price", 50.00);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

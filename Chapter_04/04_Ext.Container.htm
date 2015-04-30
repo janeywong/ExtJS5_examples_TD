@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css">
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script> 
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/ext-theme-neptune.js"></script>
+    <script>
+        Ext.onReady(function () {
+            var container1 = Ext.create("Ext.container.Container", {
+                html: "Raw Container",
+                renderTo: Ext.getBody()
+            });
+            var item1 = Ext.create("Ext.Component",{html:"Component"});
+            container1.add(item1);
+        });        
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--<script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script>-->
+<!-- NB can only configure properties on Singletons in ExtJS 4x-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/ext-all.js
+"></script>
+<script>
+	Ext.define("Company", {
+		singleton : true,
+		config: {
+			title: "Ace Inc." // not ExtJS 5x
+		},
+		getNumberOfEmployees: function () {
+			return 154;
+		}
+	});
+	
+	console.log(Company.title);
+	console.log(Company.getNumberOfEmployees());
+</script>
+</head>
+<body>
+</body>
+</html>

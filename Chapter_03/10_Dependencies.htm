@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script>
+<script>
+// can explicitly require classes
+// Ext.Loader.require("Ext.button.Button");
+// or
+// Ext.require("Ext.button.Button");
+// can require within class definition
+	Ext.define("MyPanel",{
+		requires : ["Ext.button.Button"],
+		extend : "Ext.panel.Panel"
+	});
+</script>
+</head>
+<body>
+</body>
+</html>

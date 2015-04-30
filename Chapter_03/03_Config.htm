@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script>
+<script>
+	Ext.define("Book",{
+		config : {
+			title : "",
+			price : -1,
+			authors: []
+		},
+		constructor : function(cfg){
+			this.initConfig(cfg);
+		},
+		setPrice: function (priceVal) {
+			if (priceVal < 5)
+				console.log("Invalid value for price " + priceVal);
+			else		
+				this.price = priceVal;
+		}
+	});
+	var xml = Ext.create("Book",{
+		title : "XML for beginners", 
+		authors : ["Sam","Kim"]
+	});
+	xml.setPrice(3);
+	console.log(xml.getPrice());
+	xml.setPrice(30);
+	console.log(xml.getPrice());
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script>
+<script>
+Ext.define("Aquatic",{
+    swim : function(){
+    console.log("Swimming");
+}
+});
+Ext.define("Terrestrial",{
+    walk : function(){
+    console.log("Walking");
+}
+});
+// create a class Reptile that can walk as well as swim. The Reptile class is created by mixing Aquatic and Terrestrial together
+Ext.define("Reptile",{
+    mixins : ["Aquatic","Terrestrial"]
+});
+// A Reptile instance can invoke the walk and swim functions
+var reptile = Ext.create("Reptile");
+reptile.swim();
+reptile.walk();
+</script>
+</head>
+<body>
+</body>
+</html>

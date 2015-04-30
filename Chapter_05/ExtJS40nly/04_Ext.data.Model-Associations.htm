@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- association only in ExtJS 4 -->
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/resources/ext-theme-neptune-all.css">
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/ext-all.js"></script> 
+    <script src="http://cdn.sencha.com/ext/gpl/5.0.0/build/packages/ext-theme-neptune/build/ext-theme-neptune.js"></script>
+    <script>
+    Ext.define("Continent", {
+            extend: "Ext.data.Model",
+            fields: ["name"]
+    });
+    Ext.define("City", {
+            extend: "Ext.data.Model",
+            fields: ["name"]
+    });
+    Ext.define("CountryDetails", {
+        extend: "Ext.data.Model",
+        fields: ["id","population"],
+    });
+    Ext.define("Country", {
+        extend: "Ext.data.Model",
+        idProperty : "name",
+        fields: ["name", "capital"],
+        hasMany: [{ name: "cities", model: "City"}],
+        hasOne: [{model:"CountryDetails"}],
+        belongsTo: [{ model: "Continent"}],
+        proxy : {
+            type : "memory",
+            data : {
+                country : {
+                name : "France",
+                capital : "Paris",
+                countrydetails : {
+                id : "cd101",
+                population : 65436552
+                },
+                cities : [
+                    {name:"Lyon"},{name:"Avignon"}
+                ],
+                continent : {
+                    name : "Europe"
+                }
+            }
+        },
+        reader : {
+            type : "json",
+            root : "country"
+        }
+    }
+});
+    Country.load("France",{
+        success : function(record){
+            var continent = record.getContinent();
+            console.log(continent.get("name"));
+            var countryDetails = record.getCountryDetails();
+            console.log(countryDetails.get("population"));
+            var cities = record.cities();
+            cities.each(function(city){
+                console.log(city.get("name"));
+            });
+        }
+    });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
